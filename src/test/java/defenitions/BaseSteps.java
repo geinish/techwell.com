@@ -34,10 +34,12 @@ public class BaseSteps {
 
     @When("I click $navigation")
     public void click_navigation(String navigation) {
+        basePage.navigationClick(navigation);
     }
 
-    @Then("I see $section")
-    public void assert_should_see_section(String section) {
-        Assert.assertEquals("If", 1, 1);
+    @Then("I redirected to $url")
+    public void assert_should_be_redirected(String url) {
+
+        Assert.assertEquals("No redirect to " + url, url, basePage.getCurrentUrl());
     }
 }
